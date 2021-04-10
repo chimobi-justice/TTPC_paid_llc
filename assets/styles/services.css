@@ -1,0 +1,11 @@
+#services > .services-container {
+    align-items: center;
+}
+#services > .services-container > div {
+    width: 40%;
+}
+#services > .services-container > div > img {
+    width: 95%;
+    border-radius: 15px;
+    height: 400px;
+}
