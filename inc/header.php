@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="assets/styles/herosection.css">
     <link rel="stylesheet" href="assets/styles/product.css">
     <link rel="stylesheet" href="assets/styles/services.css">
-    <link rel="stylesheet" href="assets/styles/tech_section.css">
-    <link rel="stylesheet" href="assets/styles/pathners.css">
+    <link rel="stylesheet" href="assets/styles/tech-section.css">
+    <link rel="stylesheet" href="assets/styles/pathner.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <title>TTPC paid llc</title>
 </head>

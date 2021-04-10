@@ -8,9 +8,9 @@
 
     <?php include('services.php'); ?>
 
-    <?php include('tech_section.php'); ?>
+    <?php include('tech-section.php'); ?>
 
-    <?php include('pathners.php'); ?>
+    <?php include('pathner.php'); ?>
 
 
     <?php include('inc/footer.php'); ?>
