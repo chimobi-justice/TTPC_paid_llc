@@ -1,0 +1,18 @@
+#hero_section {
+    background: #fff;
+}
+#hero_section > #hero_wrapper {
+    width: 70%;
+    margin: 0px auto;
+    text-align: center;
+    overflow: hidden;
+}
+#hero_section > #hero_wrapper > .hero_man > img {
+    width: 80%;
+}
+.c-my-btn {
+    border: 1px solid #f1f1f1;
+}
+.c-my-btn:hover {
+    background: #f1f1f1;
+}

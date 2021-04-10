@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: #fff;
+}
+#form {
+    box-shadow: 0px 4px 8px 0px #f1f1f1;
+    background: #f2f2f2;
+    margin-top: 2rem;
+}
+.brand > h3 > a {
+    color: #17a2b8;
+    text-decoration: none;
+}
+.err {
+    color: lightcoral;
+}
