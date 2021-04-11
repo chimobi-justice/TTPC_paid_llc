@@ -9,3 +9,23 @@
     border-radius: 15px;
     height: 400px;
 }
+
+.learn-more {
+    width: 80%;
+    margin: 0px auto;
+    padding-bottom: 5rem;
+    display: none;
+}
+.c-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.c-flex > p {
+    width: 45%;
+    padding: 10px;
+}
+
+.toggleServices {
+    display: block !important;
+}

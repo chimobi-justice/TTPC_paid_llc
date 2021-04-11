@@ -1,5 +1,8 @@
 
 <html>
+    
+    <?php include('loaders/loader.php'); ?>
+
     <?php include('inc/header.php'); ?>
 
     <?php include('herosection.php'); ?>

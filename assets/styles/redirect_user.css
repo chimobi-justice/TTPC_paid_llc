@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#redirect_user_banner {
+    background: url('../images/canva-african-american-businessman--MABkCuKsKQs.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 550px;
+}
+#redirect_user_banner > p a {
+    text-decoration: underline;
+}

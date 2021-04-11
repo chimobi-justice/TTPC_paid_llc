@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#preloader {
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+#preloader > #loader {
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 15rem;
+}
+#preloader > #loader > img{
+    width: 150px;
+}

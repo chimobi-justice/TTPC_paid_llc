@@ -17,7 +17,7 @@
         } else {
             $firstname = $_POST['firstname'];
             if (!preg_match('/^[a-zA-Z]+$/', $firstname)) {
-                $errors['firstname'] = 'Firstname contains Letters Only';
+                $errors['firstname'] = 'Firstname required Letters and no spaces';
             }
         }
         if (empty($_POST['lastname'])) {
@@ -25,7 +25,7 @@
         } else {
             $lastname = $_POST['lastname'];
             if (!preg_match('/^[a-zA-Z]+$/', $lastname)) {
-                $errors['lastname'] = 'Lastname contains Letters Only';
+                $errors['lastname'] = 'Lastname required Letters and no spaces';
             }
         }
         if (empty($_POST['email'])) {
@@ -40,9 +40,12 @@
             $errors['password'] = 'Please Enter Your Password';
         } else {
             $password = $_POST['password'];
+            if (!preg_match('/^[a-zA-Z]+[0-9]+$/', $password)) {
+                $errors['password'] = 'password contains letters and numbers';
+              }
             if (strlen($password) < 8) {
                 $errors['password'] = 'Your Password is Weak';            
-            }
+            } 
         }
 
         if (!array_filter($errors)) {
@@ -63,7 +66,7 @@
                 $sql = "INSERT INTO user_account(`firstname`, `lastname`, `emailaddress`, `password`) VAlUES('$firstname', '$lastname', '$email', '$hash_password')";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
-                    $response['message'] = 'Your Account Has Been Created';
+                    header('location: ../redirect_user.php');
                 } else {
                     $response['message'] = 'Account Not Created, Please Try Again';
                 }
@@ -86,48 +89,54 @@
     <title>TTPC paid llc | sign up</title>
 </head>
 <body>
-    <div class="mt-5 brand">
-        <h3 class="text-center"><a href="../index.php" title="TTPC paid llc Home">TTPC paid llc</a></h3>
-    </div>
-        
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form-group col-md-3 mx-auto p-3" id="form" method="POST">
 
-        <?php if (!$response): ?>
-            <p></p>
-        <?php elseif($response['message'] === 'Email address Already Exit'): ?>    
-            <p class="alert alert-danger text-center"><?php echo $response['message']; ?></p>
-        <?php elseif($response['message'] === 'Your Account Has Been Created'): ?>    
-            <p class="alert alert-success text-center"><?php echo $response['message']; ?></p>
-        <?php elseif($response['message'] === 'Account Not Created, Please Try Again'): ?>    
-            <p class="alert alert-danger text-center"><?php echo $response['message']; ?></p>
-        <?php else: ?>    
-            <p></p>     
-        <?php endif; ?>
+    <?php include('../loaders/preloader.php'); ?>
 
-        <div class="input-group mb-2">
-            <label for="firstname" class="mb-0">Firstname</label>
-            <input type="text" id="firstname" name="firstname" class="form-control w-100" placeholder="Enter Firstname" value="<?php echo htmlspecialchars($firstname); ?>">
-            <p class="err"><?php echo $errors['firstname']; ?></p>
+    <div class="displayPageAfterLoader">
+
+        <div class="mt-5 brand">
+            <h3 class="text-center"><a href="../index.php" title="TTPC paid llc Home">TTPC paid llc</a></h3>
         </div>
-        <div class="input-group mb-2">
-            <label for="lastname" class="mb-0">Lastname</label>
-            <input type="text" id="lastname" name="lastname" class="form-control w-100" placeholder="Enter Lastname" value="<?php echo htmlspecialchars($lastname); ?>">
-            <p class="err"><?php echo $errors['lastname']; ?></p>
+            
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form-group col-md-3 mx-auto p-3" id="form" method="POST">
+
+            <?php if (!$response): ?>
+                <p></p>
+            <?php elseif($response['message'] === 'Email address Already Exit'): ?>    
+                <p class="alert alert-danger text-center"><?php echo $response['message']; ?></p>
+            <?php elseif($response['message'] === 'Your Account Has Been Created'): ?>    
+                <p class="alert alert-success text-center"><?php echo $response['message']; ?></p>
+            <?php elseif($response['message'] === 'Account Not Created, Please Try Again'): ?>    
+                <p class="alert alert-danger text-center"><?php echo $response['message']; ?></p>
+            <?php else: ?>    
+                <p></p>     
+            <?php endif; ?>
+
+            <div class="input-group mb-2">
+                <label for="firstname" class="mb-0">Firstname</label>
+                <input type="text" id="firstname" name="firstname" class="form-control w-100" placeholder="Enter Firstname" value="<?php echo htmlspecialchars($firstname); ?>">
+                <p class="err"><?php echo $errors['firstname']; ?></p>
+            </div>
+            <div class="input-group mb-2">
+                <label for="lastname" class="mb-0">Lastname</label>
+                <input type="text" id="lastname" name="lastname" class="form-control w-100" placeholder="Enter Lastname" value="<?php echo htmlspecialchars($lastname); ?>">
+                <p class="err"><?php echo $errors['lastname']; ?></p>
+            </div>
+            <div class="input-group mb-2">
+                <label for="email" class="mb-0">Email</label>
+                <input type="email" id="email" name="email" class="form-control w-100" placeholder="Email Address" value="<?php echo htmlspecialchars($email); ?>">
+                <p class="err"><?php echo $errors['email']; ?></p>
+            </div>    
+            <div class="input-group mb-2">
+                <label for="password" class="mb-0">Password</label>
+                <input type="password" id="password" name="password" class="form-control w-100" placeholder="Enter Password" value="<?php echo htmlspecialchars($password); ?>">
+                <p class="err"><?php echo $errors['password']; ?></p>
+            </div>           
+            <input type="submit" name="submit" class="btn btn-block btn-info mb-1 mt-3" value="Sign up">
+        </form>
+        <div class="text-center">
+            <p>Already have an account!<a href="login.php">Login</a></p>
         </div>
-        <div class="input-group mb-2">
-            <label for="email" class="mb-0">Email</label>
-            <input type="email" id="email" name="email" class="form-control w-100" placeholder="Email Address" value="<?php echo htmlspecialchars($email); ?>">
-            <p class="err"><?php echo $errors['email']; ?></p>
-        </div>    
-        <div class="input-group mb-2">
-            <label for="password" class="mb-0">Password</label>
-            <input type="password" id="password" name="password" class="form-control w-100" placeholder="Enter Password" value="<?php echo htmlspecialchars($password); ?>">
-            <p class="err"><?php echo $errors['password']; ?></p>
-        </div>           
-        <input type="submit" name="submit" class="btn btn-block btn-info mb-1 mt-3" value="Sign up">
-    </form>
-    <div class="text-center">
-        <p>Already have an account!<a href="login.php">Login</a></p>
-    </div>
+    </div>    
 </body>
 </html>
