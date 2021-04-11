@@ -7,6 +7,9 @@ body {
     background: #fff;
     line-height: 1.5em;
 }
+.displayPageAfterLoader {
+    display: none;
+}
 #navbar {
     border-bottom: 1px solid #f1f1f1;
 }
@@ -16,3 +19,4 @@ body {
 #signIn {
     text-decoration: none;
 }
+  

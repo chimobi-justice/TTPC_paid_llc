@@ -15,6 +15,8 @@
     <title>TTPC paid llc</title>
 </head>
 <body>
+  <div class="displayPageAfterLoader">
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="navbar">
       <h1><a class="navbar-brand brand" href="#"><i>TTPC paid llc</i></a></h1>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,10 +41,10 @@
           </li>
         </ul>
         <div>
-        <form class="form-inline my-2 my-lg-0">
+        <div>
             <a  href="auth/login.php" class="text-dark m-2" id="signIn">Sign in</a>  
-            <a  href="auth/register.php" class="btn c-my-btn btn-md text-primary" id="signupBtn">Register</a>
-        </form>
+            <a  href="auth/signup.php" class="btn c-my-btn btn-md text-primary" id="signupBtn">Register</a>
+        </div>
         </div>
       </div>
   </nav>
